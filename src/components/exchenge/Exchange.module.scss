@@ -1,0 +1,84 @@
+.exchange {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+
+  .header {
+    width: 100%;
+    height: 60px;
+    background: #1890ff;
+  }
+
+  .head {
+    display: inherit;
+    flex-direction: inherit;
+    align-items: center;
+
+    .title {
+      font-weight: 200;
+      font-size: 24px;
+      color: #646464;
+    }
+
+    .rate {
+      font-size: 32px;
+      font-weight: 600;
+      margin: 20px 0;
+    }
+  }
+
+  .field {
+    display: inherit;
+    flex-direction: inherit;
+    align-items: start;
+
+    .subTitle {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #646464;
+    }
+
+    input {
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid #cecece;
+      outline: 0;
+      padding: 10px;
+      font-size: 32px;
+      font-weight: 600;
+      box-sizing: border-box;
+    }
+  }
+
+  .main {
+    display: inherit;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 30px;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .arrows {
+      margin-bottom: 10px;
+    }
+  }
+
+  .buttons {
+    display: inherit;
+    flex-direction: inherit;
+    margin-top: 50px;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

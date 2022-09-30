@@ -1,0 +1,25 @@
+.allCurrencies {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+
+  .header {
+    display: inherit;
+    justify-content: flex-end;
+    width: 100%;
+    height: 60px;
+    background: #1890ff;
+    padding: 10px;
+    box-sizing: border-box;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .currency {
+    display: inherit;
+    justify-content: space-between;
+  }
+}

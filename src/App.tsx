@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import Exchange from "./components/exchenge/Exchange";
+import style from "./App.module.scss";
+import AllCurrencies from "./components/allCurrencies/AllCurrencies";
+import {Route, Routes} from "react-router";
+import {useAppDispatch} from "./hooks/hooks";
+import {getCurrencyTC} from "./bll/app-reducer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App = () => {
+const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        dispatch(getCurrencyTC('USD', 'UAH', '1'))
+    }, [dispatch])
+
+    return <div className={style.app}>
+        <Routes>
+            <Route path="/*" element={<Exchange/>}/>
+            <Route path="/all-currencies" element={<AllCurrencies/>}/>
+        </Routes>
     </div>
-  );
 }
-
 export default App;
