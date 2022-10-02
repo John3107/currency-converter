@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import style from './Exchange.module.scss';
 import s from '../../facades/styles/FacadeStyle.module.scss';
 import exchangeArrows from '../../../src/assets/icons/exchange-arrows.svg';

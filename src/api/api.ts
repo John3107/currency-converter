@@ -9,7 +9,7 @@ const instance = axios.create({
 
 
 export const currencyConverterAPI = {
-    getCurrency(to: string, from: string, amount: string) {
+    getCurrency(from: string, to: string, amount: string) {
         return instance.get(`convert?to=${to}&from=${from}&amount=${amount}`);
     }
 }

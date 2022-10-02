@@ -2,18 +2,26 @@ import React, {useEffect, useState} from 'react';
 import style from "./AllCurrencies.module.scss";
 import s from "../../facades/styles/FacadeStyle.module.scss";
 import {useNavigate} from "react-router";
-import {useAppSelector} from "../../hooks/hooks";
+import {useAppDispatch, useAppSelector} from "../../hooks/hooks";
 import {CurrencyType} from "../../types/types";
 import Preloader from "../../facades/preloader/Preloader";
+import {currenciesWithoutGeneralTC} from "../../bll/app-reducer";
 
 const AllCurrencies = () => {
     const navigate = useNavigate()
-    const {currencies, toCurrency, exchangeResult, isLoading} = useAppSelector()
+    const dispatch = useAppDispatch()
+    const {currencies, toCurrency, isLoading} = useAppSelector()
     const [currenciesFiltered, setCurrenciesFiltered] = useState<CurrencyType[]>()
 
     useEffect(() => {
-        setCurrenciesFiltered(currencies.filter(el => el.value !== toCurrency.value))
-    }, [])
+        const currenciesWithoutGeneral = currencies.filter(el => el.value !== toCurrency.value)
+        dispatch(currenciesWithoutGeneralTC(currenciesWithoutGeneral, toCurrency))
+    }, [dispatch])
+
+    useEffect(() => {
+        const currenciesWithoutGeneral = currencies.filter(el => el.value !== toCurrency.value)
+        setCurrenciesFiltered(currenciesWithoutGeneral)
+    }, [currencies])
 
     const toConverter = () => navigate("/")
 
@@ -38,7 +46,7 @@ const AllCurrencies = () => {
                             <span>{el.value}</span>
                         </div>
                         <div className={s.cell} style={{margin: '20px 0', justifyContent: 'center'}}>
-                            <span>{exchangeResult}</span>
+                            <span>{el.resultTo}</span>
                         </div>
                     </div>
                 })}

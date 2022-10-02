@@ -7,7 +7,7 @@ import {useAppDispatch} from "./hooks/hooks";
 import {getCurrencyTC} from "./bll/app-reducer";
 
 const App = () => {
-const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
         dispatch(getCurrencyTC('USD', 'UAH', '1'))
