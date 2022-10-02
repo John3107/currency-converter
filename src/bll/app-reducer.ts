@@ -66,7 +66,10 @@ export const currenciesWithoutGeneralTC = (currenciesFiltered: CurrencyType[], t
             currencyConverterAPI.getCurrency(el.value, toCurrency.value, '1')
                 .then((res) => {
                     count++
-                    dispatch(setCurrenciesAC({value: el.value, resultTo: res.data.result.toFixed(2)}))
+                    dispatch(setCurrenciesAC({
+                        value: res.data.query.from,
+                        resultTo: res.data.result.toFixed(2)
+                    }))
                 })
                 .catch((err) => {
                     count++

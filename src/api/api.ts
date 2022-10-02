@@ -3,7 +3,7 @@ import axios from 'axios'
 const instance = axios.create({
     baseURL: 'https://api.apilayer.com/exchangerates_data/',
     headers: {
-        "apikey": "nq4rkG7eNJm1JAMF4m8aL5UyN3zI0vRk"
+        "apikey": "J52NzgJHdx6TTU3ht7haXcUSTKIAxcq6"
     }
 })
 
